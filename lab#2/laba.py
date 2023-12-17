@@ -1,14 +1,12 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, status
 from pydantic import BaseModel
 import pyjokes
-import wikipedia
 
 app = FastAPI()
 
 class Joke(BaseModel):
     friend: str
     joke: str
-
 
 class JokeInput(BaseModel):
     friend: str
@@ -31,33 +29,18 @@ def multi_friends_joke(friend: str, jokes_number: int):
         result += friend + f" tells his joke #{i + 1}: " + pyjokes.get_joke() + " "
     return result
 
-
 class Article(BaseModel):
     title: str
 
-
-@app.get("/article/{title}")
-def search_by_path(title: str):
-    try:
-        data = wikipedia.summary(title, sentences=4)
-    except wikipedia.exceptions.DisambiguationError as e:
-        data = e.options
-    return data
-
-
-@app.get("/query_search/")
-def search_by_query(title: str):
-    articles = wikipedia.search(title)
-    data = {
-        "articles": articles
-    }
-    return data
-
-
-@app.post("/post_search/")
-def search_by_body(article: Article):
-    try:
-        data = wikipedia.summary(article.title, sentences=4)
-    except wikipedia.exceptions.DisambiguationError as e:
-        data = e.options
-    return data
+@app.get("/claulator/{equation}")
+def search_by_path(equation: str):
+    for equation in equation.split():
+        if equation != "":
+            try:
+                equation = equation.replace(':', '/')
+                data = eval(equation)
+            except:
+                data = "ошибка в математическом выражении!"
+                return data, status.HTTP_400_BAD_REQUEST
+            return data, status.HTTP_200_OK
+    return status.HTTP_500_INTERNAL_SERVER_ERROR

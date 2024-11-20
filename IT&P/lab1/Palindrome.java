@@ -1,13 +1,10 @@
-package ITIP.lab1;
-
 public class Palindrome {
   public static String reverseString(String s) {
       StringBuilder reversed = new StringBuilder();
-      // Перебираем символы строки с конца до начала
       for (int i = s.length() - 1; i >= 0; i--) {
-          reversed.append(s.charAt(i)); // Добавляем каждый символ в новый StringBuilder
+          reversed.append(s.charAt(i));
       }
-      return reversed.toString(); // Преобразуем StringBuilder обратно в строку
+      return reversed.toString();
   }
 
   public static boolean isPalindrome(String s) {

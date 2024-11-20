@@ -4,10 +4,13 @@ public abstract class Employee {
   private int age;
   private int cupsOfCoffeeDrunk;
 
-  public Employee(String name, int age, double cupsOfCoffeeDrunk) {
+  private static int count = 0;
+
+  public Employee(String name, int age, int cupsOfCoffeeDrunk) {
     this.name = name;
     this.age = age;
     this.cupsOfCoffeeDrunk = cupsOfCoffeeDrunk;
+    count++;
   }
 
   abstract void eat();
@@ -19,6 +22,11 @@ public abstract class Employee {
   }
 
   // GET & SET
+
+  public static int getCount() {
+    return count;
+  }
+
   public String getName() {
     return name;
   }

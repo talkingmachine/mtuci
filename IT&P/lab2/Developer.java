@@ -1,25 +1,22 @@
-package lab2;
+public class Developer extends Employee {
 
-public class Developer {
-
-  public Developer(String name, int age, double cups) {
+  public Developer(String name, int age, int cups) {
     super(name, age, cups);
   }
 
   @Override
   public void talk() {
-    System.out.println(getName() + " says: nothing's working. f/ck ");
+    System.out.println(this.getName() + " говорит: почему не работает.. ");
+  }
+
+  @Override
+  public void drinkCoffee(int cups) {
+    super.drinkCoffee(cups * 2);
+    System.out.println(this.getName() + " выпивает " + cups + " чашек кофе");
   }
 
   @Override
   void eat() {
-    System.out.println(getName() + " is eating lunch");
-  }
-
-  @Override
-  void drinkCoffee(int cups) {
-    super.drinkCoffee(cups * 2)
-    System.out.println(getName() + " wakes up");
+    drinkCoffee(1);
   }
 }
-//

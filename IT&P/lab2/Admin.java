@@ -1,23 +1,22 @@
-package lab2;
-
 public class Admin extends Employee {
 
-  public Admin(String name, int age, double cups) {
+  public Admin(String name, int age, int cups) {
     super(name, age, cups);
   }
 
   @Override
   public void talk() {
-    System.out.println(getName() + " says: no one is working!");
+    System.out.println(getName() + " говорит: работать!!");
   }
 
   @Override
   void eat() {
-    System.out.println(getName() + " is eating lunch");
+    System.out.println(getName() + " ест ланч");
   }
 
   @Override
-  void drinkCoffee(int cups) {
-    System.out.println(getName() + " wakes up");
+  public void drinkCoffee(int cups) {
+    super.drinkCoffee(cups);
+    System.out.println(getName() + " просыпается, выпив " + cups + " чашек кофе");
   }
 }

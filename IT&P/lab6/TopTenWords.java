@@ -23,7 +23,6 @@ public class TopTenWords {
 
     Map<String, Integer> wordCountMap = new HashMap<>();
 
-    // читаем файл по словам и добавляем их в Map
     while (scanner.hasNext()) {
       String word = scanner.next().toLowerCase().replaceAll("[^a-zA-Z]", "");
       if (!word.isEmpty()) {
@@ -37,7 +36,7 @@ public class TopTenWords {
 
     list.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
 
-    System.out.println("Top 10 words:");
+    System.out.println("Топ 10 самых популярных слов:");
     for (int i = 0; i < Math.min(10, list.size()); i++) {
       System.out.println(list.get(i).getKey() + ": " + list.get(i).getValue());
     }

@@ -21,7 +21,7 @@ public class User {
     age = 21;
 
     try {
-      setAge();
+      setAge(123);
     } catch (CustomAgeException e) {
       System.out.println(e.getMessage());
       ErrorLogger.logException(e);

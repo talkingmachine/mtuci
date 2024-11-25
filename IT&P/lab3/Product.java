@@ -12,7 +12,8 @@ class Product {
     this.description = description;
   }
 
-  // Геттеры и сеттеры для полей
+  // GET && SET
+
   public String getName() {
     return name;
   }

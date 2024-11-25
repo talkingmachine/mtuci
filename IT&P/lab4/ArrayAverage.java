@@ -19,7 +19,7 @@ public class ArrayAverage {
       }
 
       if (count == 0) {
-        throw new ArithmeticException("There are no numerical elements for calculating the arithmetic mean.");
+        throw new ArithmeticException("Нет валидных данных");
       }
       double average = sum / count;
       System.out.println("Arithmetic mean: " + average);

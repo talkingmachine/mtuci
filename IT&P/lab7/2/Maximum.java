@@ -1,12 +1,14 @@
-public class Counter {
+public class Maximum {
 
-  private int count;
+  private int maximum = 0;
 
-  public synchronized void add(int number) {
-    count += number;
+  public synchronized void checkIsMax(int number) {
+    if (number > maximum) {
+      maximum = number;
+    };
   }
 
-  public int getCount() {
-    return count;
+  public int getMaximum() {
+    return maximum;
   }
 }

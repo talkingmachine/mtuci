@@ -7,7 +7,7 @@ public class HashTable<K, V> {
     K key;
     V value;
 
-    public HashNode(K key, V value) {
+    public x(K key, V value) {
       this.key = key;
       this.value = value;
     }

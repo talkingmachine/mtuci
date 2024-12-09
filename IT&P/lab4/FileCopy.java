@@ -17,7 +17,7 @@ public class FileCopy {
       File destinationFile = new File(destinationFilePath);
 
       if (!sourceFile.exists()) {
-        throw new IOException("The source file does not exist: " + sourceFilePath);
+        throw new IOException("Исходный файл не существует: " + sourceFilePath);
       }
 
       fis = new FileInputStream(sourceFile);

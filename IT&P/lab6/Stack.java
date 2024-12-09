@@ -23,7 +23,7 @@ public class Stack<T> {
       throw new NoSuchElementException("Stack empty");
     }
     T element = data[--size];
-    data[size] = null; // освобождаем ссылку
+    data[size] = null;
     return element;
   }
 

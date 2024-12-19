@@ -7,7 +7,7 @@ public class DataTransformer {
   public List<String> transformData(List<String> data) {
     return data
       .stream()
-      .map(String::toUpperCase) // Пример трансформации
+      .map(String::toUpperCase)
       .collect(Collectors.toList());
   }
 }

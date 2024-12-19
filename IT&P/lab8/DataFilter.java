@@ -7,7 +7,7 @@ public class DataFilter {
   public List<String> filterData(List<String> data) {
     return data
       .stream()
-      .filter(d -> d.contains("1")) // Пример фильтрации
+      .filter(d -> d.contains("1"))
       .collect(Collectors.toList());
   }
 }

@@ -24,12 +24,12 @@ public class DataManager {
     try (BufferedReader br = new BufferedReader(new FileReader(source))) {
       String line;
       while ((line = br.readLine()) != null) {
-        loadedData.add(line); // Добавляем каждую строку в список
+        loadedData.add(line);
       }
     } catch (IOException e) {
-      e.printStackTrace(); // Обработка исключений при чтении файла
+      e.printStackTrace();
     }
-    data = loadedData; // Обновляем поле data загруженными данными
+    data = loadedData;
   }
 
   public void processData() {
@@ -65,11 +65,11 @@ public class DataManager {
   public void saveData(String destination) {
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(destination))) {
       for (String line : data) {
-        bw.write(line); // Записываем каждую строку в файл
-        bw.newLine(); // Добавляем новую строку
+        bw.write(line);
+        bw.newLine();
       }
     } catch (IOException e) {
-      e.printStackTrace(); // Обработка исключений при записи в файл
+      e.printStackTrace();
     }
   }
 }

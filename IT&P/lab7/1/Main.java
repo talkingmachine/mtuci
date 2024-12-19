@@ -20,7 +20,7 @@ public class Main {
       int start = i * partSize;
       int end = Math.min(start + partSize, array.length);
       Thread task = new ArraySumRunnable(array, start, end, counter);
-      task.start();
+      executor.execute(task);
     }
 
     executor.shutdown();

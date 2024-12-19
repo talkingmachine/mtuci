@@ -33,7 +33,7 @@ public class Main {
       int start = i * partSize;
       int end = Math.min(start + partSize, matrix.length);
       Thread task = new ArrayMaxRunnable(matrix, start, end, maximum);
-      task.start();
+      executor.execute(task);
     }
 
     executor.shutdown();

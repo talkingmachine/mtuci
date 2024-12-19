@@ -34,7 +34,7 @@ public class DataManager {
 
   public void processData() {
     ExecutorService executor = Executors.newFixedThreadPool(processors.size());
-    AtomicReference<List<String>> processedData = new AtomicReference<>(data); // Используем AtomicReference
+    AtomicReference<List<String>> processedData = new AtomicReference<>(data);
 
     for (Object processor : processors) {
       executor.submit(() -> {
@@ -42,10 +42,9 @@ public class DataManager {
         for (Method method : methods) {
           if (method.isAnnotationPresent(DataProcessor.class)) {
             try {
-              // Явно указываем, что метод возвращает List<String>
-              @SuppressWarnings("unchecked") // Игнорируем предупреждение о приведении типов
+              @SuppressWarnings("unchecked")
               List<String> result = (List<String>) method.invoke(processor, processedData.get());
-              processedData.set(result); // Обновляем значение в AtomicReference
+              processedData.set(result);
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -56,10 +55,9 @@ public class DataManager {
 
     executor.shutdown();
     while (!executor.isTerminated()) {
-      // Ожидание завершения всех потоков
     }
 
-    data = processedData.get(); // Обновляем основное поле data
+    data = processedData.get();
   }
 
   public void saveData(String destination) {
